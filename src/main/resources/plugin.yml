@@ -1,0 +1,20 @@
+name: Warpornator
+description: Just a Test Plugin
+version: 1.0.0
+author: Probber
+website: gameclaw.net
+
+main: net.gameclaw.warpornator.Warpornator
+
+commands:
+  addWP:
+    description: Adds a Warppoint.
+    usage: /addWP [Name of the Warppoint]
+
+  removeWP:
+    description: Removes a Warppoint.
+    usage: /removeWP [Name of the Warppoint]
+
+  tpToWP:
+    description: Teleports you to the named Warppoint.
+    usage: /tpToWP [Name of the Warppoint]
