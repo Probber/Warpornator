@@ -123,8 +123,6 @@ public class IOHandler {
     public boolean removeWarp(String name) {
         try {
 
-            Boolean worked = false;
-
             File temp = new File(main.getDataFolder(), "temp.txt");
             File warpFile = new File(main.getDataFolder(), "warps.txt");
 
