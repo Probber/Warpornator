@@ -9,6 +9,8 @@ import java.util.HashMap;
  */
 public class WarpList {
 
+    public static HashMap<String, Location> wpList = new HashMap<String, Location>();
+
     /**
      * Adds a Warppoint to the wpList
      * @param name The Name of the Warppoint
@@ -20,7 +22,7 @@ public class WarpList {
         if(name.length() != 0){
 
             if(loc.length() != 0){
-                Warpornator.wpList.put(name, loc);
+                wpList.put(name, loc);
                 return true;
             } else {
                 return false;
@@ -39,10 +41,10 @@ public class WarpList {
 
         if (name.length() != 0) {
 
-            for(String aName : Warpornator.wpList.keySet()){
+            for(String aName : wpList.keySet()){
 
                 if (aName.equals(name)) {
-                    return Warpornator.wpList.get(aName);
+                    return wpList.get(aName);
                 }
             }
             return null;
@@ -52,17 +54,38 @@ public class WarpList {
     }
 
     /**
+     * Checks if a Warp is already existing.
+     * @param name The Name of the Warp.
+     * @return A at match, B at no match and E for failure.
+     */
+    public static String checkForDuplicate(String name) {
+
+        if (name.length() != 0) {
+
+            for(String aName : wpList.keySet()) {
+
+                if (aName.equals(name)) {
+                    return "A";
+                }
+            }
+            return "B";
+        } else {
+            return "E";
+        }
+    }
+
+    /**
      * Deletes a Location.
      * @param name The name of the Warppoint you want to delete.
      * @return True at a success and false at a fail
      */
-    public static boolean deleteWarppoint(String name){
+    public static boolean deleteWarppoint(String name) {
 
         if (name.length() != 0) {
 
-            for(String aName : Warpornator.wpList.keySet()){
+            for(String aName : wpList.keySet()) {
                 if (aName.equals(name)) {
-                    Warpornator.wpList.remove(aName);
+                    wpList.remove(name);
                     return true;
                 }
             }
@@ -70,6 +93,5 @@ public class WarpList {
         } else {
             return false;
         }
-
     }
 }

@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 public class TeleportToWarppoint implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         if (args.length != 0) {
 
@@ -24,9 +24,8 @@ public class TeleportToWarppoint implements CommandExecutor {
 
                     ((Player) sender).teleport(destination);
                     Location senderLoc = ((Player) sender).getLocation();
-
-                        sender.sendMessage("Teleportation to the Warppoint was successfull.");
-                        return true;
+                    sender.sendMessage("Teleportation to the Warppoint was successfull.");
+                    return true;
 
                 } else {
                     sender.sendMessage("Error by getting the Location of the Warppoint.");

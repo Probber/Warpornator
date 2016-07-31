@@ -20,8 +20,18 @@ public class DeleteWarp implements CommandExecutor {
                 Boolean result = WarpList.deleteWarppoint(args[0]);
 
                 if (result != false) {
-                    sender.sendMessage("Warppoint: " + args[0] + " got deleted.");
-                    return true;
+
+
+                    Boolean delResult = Warpornator.warpFile.removeWarp(args[0]);
+
+                    if (delResult != false) {
+                        sender.sendMessage("Warppoint: " + args[0] + " got deleted.");
+                        return true;
+
+                    } else {
+                        sender.sendMessage("Error by deleting the Warppoint out of warps.txt.");
+                        return false;
+                    }
 
                 } else {
                     sender.sendMessage("Error by deleting the Warppoint.");
